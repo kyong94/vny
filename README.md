@@ -347,4 +347,4 @@ If you're stuck, check the following:
 
 + Check out [the DC/OS documentation](https://dcos.io/docs/).
 
-+ Get help by asking [the DC/OS Community](https://dcos.io/community/).
++ Get help by asking [the DC/OS Community](https://dcos.io/community/).# vny
