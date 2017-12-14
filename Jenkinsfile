@@ -27,4 +27,16 @@ node {
         sh "docker login -u '${env.DOCKERHUB_USERNAME}' -p '${env.DOCKERHUB_PASSWORD}' -e kyong94@gmail.com"
         sh "docker push docker.io/kyong94/vny:${gitCommit()}"
     }
+
+    // Deploy
+    stage 'Deploy'
+
+    marathon(
+        url: 'http://192.168.6.33:8080',
+        forceUpdate: false,
+        credentialsId: 'dcos-token',
+        filename: 'marathon.json',
+        appid: 'nginx-kyong94',
+        docker: "docker.io/kyong94/vny:${gitCommit()}".toString()
+    )
 }
